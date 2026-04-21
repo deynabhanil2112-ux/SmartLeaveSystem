@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="SmartLeave.Application/SmartLeave.Application.csproj" />
+  <Project Path="SmartLeave.Domain/SmartLeave.Domain.csproj" />
+  <Project Path="SmartLeave.Infrastructure/SmartLeave.Infrastructure.csproj" />
+  <Project Path="SmartLeaveSystem_API/SmartLeaveSystem_API.csproj" />
+</Solution>
