@@ -1,0 +1,158 @@
+<div class="dashboard-shell">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__mark">S</div>
+      <div>
+        <h2>SmartLeave</h2>
+        <p>Operations Suite</p>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <a
+        *ngFor="let item of navItems"
+        class="nav-item"
+        [class.nav-item--active]="item.active"
+        href="javascript:void(0)"
+      >
+        <span class="nav-item__icon">{{ item.icon }}</span>
+        <span>{{ item.label }}</span>
+      </a>
+    </nav>
+
+    <div class="sidebar__promo">
+      <span class="sidebar__promo-chip">Today</span>
+      <h3>11 people are out tomorrow</h3>
+      <p>Review overlaps and approve pending requests before 6 PM.</p>
+    </div>
+  </aside>
+
+  <main class="dashboard-main">
+    <header class="topbar">
+      <div>
+        <p class="topbar__eyebrow">Dashboard</p>
+        <h1>Good morning, Deyna</h1>
+        <p class="topbar__subtext">Here’s a quick snapshot of today’s leave activity.</p>
+      </div>
+
+      <div class="topbar__actions">
+        <button class="ghost-btn" type="button">Export</button>
+        <button class="primary-btn" type="button">New Request</button>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <article class="metric-card" *ngFor="let stat of statCards">
+        <p>{{ stat.label }}</p>
+        <strong>{{ stat.value }}</strong>
+        <span>{{ stat.change }}</span>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel panel--wide">
+        <div class="panel__header">
+          <div>
+            <h2>Pending approvals</h2>
+            <p>Latest requests waiting on action</p>
+          </div>
+          <button class="panel-link" type="button">View all</button>
+        </div>
+
+        <div class="request-table">
+          <div class="request-table__head">
+            <span>Employee</span>
+            <span>Leave Type</span>
+            <span>Dates</span>
+            <span>Status</span>
+          </div>
+
+          <div class="request-row" *ngFor="let request of leaveRequests">
+            <span>{{ request.employee }}</span>
+            <span>{{ request.type }}</span>
+            <span>{{ request.days }}</span>
+            <span
+              class="badge"
+              [class.badge--approved]="request.status === 'Approved'"
+              [class.badge--pending]="request.status === 'Pending'"
+              [class.badge--review]="request.status === 'Needs Review'"
+            >
+              {{ request.status }}
+            </span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>Leave balance</h2>
+            <p>Your current balance</p>
+          </div>
+        </div>
+
+        <div class="balance-stack">
+          <div class="balance-item">
+            <div>
+              <strong>18 days</strong>
+              <span>Annual leave</span>
+            </div>
+            <div class="progress"><span style="width: 72%"></span></div>
+          </div>
+
+          <div class="balance-item">
+            <div>
+              <strong>6 days</strong>
+              <span>Sick leave</span>
+            </div>
+            <div class="progress"><span style="width: 45%"></span></div>
+          </div>
+
+          <div class="balance-item">
+            <div>
+              <strong>3 days</strong>
+              <span>Optional holidays</span>
+            </div>
+            <div class="progress"><span style="width: 30%"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>Team availability</h2>
+            <p>Key people today</p>
+          </div>
+        </div>
+
+        <div class="team-list">
+          <div class="team-row" *ngFor="let member of teamMembers">
+            <div class="avatar">{{ member.name.charAt(0) }}</div>
+            <div>
+              <strong>{{ member.name }}</strong>
+              <p>{{ member.role }}</p>
+            </div>
+            <span>{{ member.status }}</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel panel--wide">
+        <div class="panel__header">
+          <div>
+            <h2>Recent activity</h2>
+            <p>What changed across the workspace</p>
+          </div>
+        </div>
+
+        <div class="activity-feed">
+          <div class="activity-item" *ngFor="let item of activity; let i = index">
+            <div class="activity-dot">{{ i + 1 }}</div>
+            <p>{{ item }}</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>

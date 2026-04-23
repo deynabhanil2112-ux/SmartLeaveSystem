@@ -1,122 +1,120 @@
 <div class="auth-shell">
-    <section class="brand-panel">
-      <div class="brand-panel__overlay"></div>
-  
-      <div class="brand-panel__content">
-        <div class="brand">
-          <div class="brand__mark">S</div>
-          <div>
-            <h2>SmartLeave</h2>
-            <p>Leave management made effortless</p>
-          </div>
-        </div>
-  
-        <div class="hero-copy">
-          <span class="eyebrow">Workforce Platform</span>
-          <h1>Smarter leave workflows for modern teams</h1>
-          <p>
-            Track requests, automate approvals, and keep everyone aligned with a
-            clean experience built for HR and employees.
-          </p>
-        </div>
-  
-        <div class="feature-list">
-          <div class="feature-item">
-            <span class="feature-dot"></span>
-            Fast approvals
-          </div>
-          <div class="feature-item">
-            <span class="feature-dot"></span>
-            Real-time leave balance
-          </div>
-          <div class="feature-item">
-            <span class="feature-dot"></span>
-            Team calendar visibility
-          </div>
-        </div>
-  
-        <div class="stats">
-          <div class="stat-card">
-            <strong>98%</strong>
-            <span>Approval efficiency</span>
-          </div>
-          <div class="stat-card">
-            <strong>500+</strong>
-            <span>Teams onboarded</span>
-          </div>
-          <div class="stat-card">
-            <strong>50k+</strong>
-            <span>Employees managed</span>
-          </div>
+  <section class="brand-panel">
+    <div class="brand-panel__overlay"></div>
+
+    <div class="brand-panel__content">
+      <div class="brand">
+        <div class="brand__mark">S</div>
+        <div>
+          <h2>SmartLeave</h2>
+          <p>Leave management made effortless</p>
         </div>
       </div>
-    </section>
-  
-    <section class="form-panel">
-      <div class="auth-card">
-        <div class="auth-card__top">
-          <span class="chip">Secure access</span>
-          <h2>Welcome back</h2>
-          <p>Sign in to continue to your workspace</p>
+
+      <div class="hero-copy">
+        <span class="eyebrow">Workforce Platform</span>
+        <h1>Smarter leave workflows for modern teams</h1>
+        <p>
+          Track requests, automate approvals, and keep everyone aligned with a
+          clean experience built for HR and employees.
+        </p>
+      </div>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          Fast approvals
         </div>
-  
-        <div *ngIf="errorMessage" class="error-box">
-          {{ errorMessage }}
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          Real-time leave balance
         </div>
-  
-        <form class="auth-form" (ngSubmit)="onSubmit()">
-          <div class="field">
-            <label for="email">Email</label>
+        <div class="feature-item">
+          <span class="feature-dot"></span>
+          Team calendar visibility
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <strong>98%</strong>
+          <span>Approval efficiency</span>
+        </div>
+        <div class="stat-card">
+          <strong>500+</strong>
+          <span>Teams onboarded</span>
+        </div>
+        <div class="stat-card">
+          <strong>50k+</strong>
+          <span>Employees managed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-panel">
+    <div class="auth-card">
+      <div class="auth-card__top">
+        <span class="chip">Secure access</span>
+        <h2>Welcome back</h2>
+        <p>Sign in to continue to your workspace</p>
+      </div>
+
+      <div *ngIf="errorMessage" class="error-box">
+        {{ errorMessage }}
+      </div>
+
+      <form class="auth-form" (ngSubmit)="onSubmit()">
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            placeholder="name@company.com"
+          />
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-wrap">
             <input
-              id="email"
-              type="email"
-              [(ngModel)]="email"
-              name="email"
-              placeholder="name@company.com"
+              id="password"
+              [type]="showPassword ? 'text' : 'password'"
+              [(ngModel)]="password"
+              name="password"
+              placeholder="Enter your password"
             />
+            <button
+              type="button"
+              class="icon-btn"
+              (click)="togglePassword()"
+              aria-label="Toggle password visibility"
+            >
+              {{ showPassword ? 'Hide' : 'Show' }}
+            </button>
           </div>
-  
-          <div class="field">
-            <label for="password">Password</label>
-            <div class="password-wrap">
-              <input
-                id="password"
-                [type]="showPassword ? 'text' : 'password'"
-                [(ngModel)]="password"
-                name="password"
-                placeholder="Enter your password"
-              />
-              <button
-                type="button"
-                class="icon-btn"
-                (click)="togglePassword()"
-                aria-label="Toggle password visibility"
-              >
-                {{ showPassword ? 'Hide' : 'Show' }}
-              </button>
-            </div>
-          </div>
-  
-          <div class="form-row">
-            <label class="check">
-              <input
-                type="checkbox"
-                [(ngModel)]="rememberMe"
-                name="rememberMe"
-              />
-              <span>Remember me</span>
-            </label>
-  
-            <a routerLink="/forgot-password" class="link">Forgot password?</a>
-          </div>
-  
-          <button type="submit" [disabled]="isLoading" class="btn">
-            <span *ngIf="!isLoading">Sign In</span>
-            <div *ngIf="isLoading" class="spinner"></div>
-          </button>          
-          
-        </form>
-      </div>
-    </section>
-  </div>
-  
+        </div>
+
+        <div class="form-row">
+          <label class="check">
+            <input
+              type="checkbox"
+              [(ngModel)]="rememberMe"
+              name="rememberMe"
+            />
+            <span>Remember me</span>
+          </label>
+
+          <a routerLink="/login" class="link">Forgot password?</a>
+        </div>
+
+        <button type="submit" [disabled]="isLoading" class="btn">
+          <span *ngIf="!isLoading">Sign In</span>
+          <div *ngIf="isLoading" class="spinner"></div>
+        </button>
+      </form>
+    </div>
+  </section>
+</div>

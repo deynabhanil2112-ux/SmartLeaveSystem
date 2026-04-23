@@ -6,25 +6,20 @@
   --primary-500: #4f46e5;
   --primary-400: #7c3aed;
   --accent: #93c5fd;
-
   --bg: #edf4ff;
   --surface: rgba(255, 255, 255, 0.94);
   --surface-strong: #ffffff;
   --border: #c7d7ff;
   --border-strong: #a9c2ff;
-
   --text-strong: #0f172a;
   --text: #334155;
   --text-soft: #64748b;
-
   --danger-bg: #fef2f2;
   --danger-text: #dc2626;
   --danger-border: #fecaca;
-
   --shadow-panel: 0 28px 80px rgba(15, 23, 42, 0.18);
   --shadow-card: 0 20px 60px rgba(37, 99, 235, 0.16);
   --shadow-button: 0 14px 30px rgba(59, 130, 246, 0.28);
-
   --radius-xl: 28px;
   --radius-lg: 20px;
   --radius-md: 14px;
@@ -56,8 +51,6 @@ body {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
 }
-
-/* Left panel */
 
 .brand-panel {
   position: relative;
@@ -198,8 +191,6 @@ body {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Right panel */
-
 .form-panel {
   display: flex;
   align-items: center;
@@ -281,8 +272,6 @@ body {
   font-size: 14px;
   color: var(--text-soft);
 }
-
-/* Form */
 
 .auth-form {
   display: flex;
@@ -386,9 +375,6 @@ body {
   text-decoration: underline;
 }
 
-/* Buttons */
-/* This styles both class="btn" and class="primary-btn" */
-
 .btn,
 .primary-btn {
   width: 100%;
@@ -436,8 +422,6 @@ body {
   visibility: visible;
 }
 
-/* Error */
-
 .error-box {
   margin-bottom: 18px;
   padding: 12px 14px;
@@ -447,8 +431,6 @@ body {
   color: var(--danger-text);
   font-size: 14px;
 }
-
-/* Spinner */
 
 .spinner {
   width: 20px;
@@ -465,8 +447,6 @@ body {
     transform: rotate(360deg);
   }
 }
-
-/* Responsive */
 
 @media (max-width: 1100px) {
   .auth-shell {
@@ -492,13 +472,14 @@ body {
 }
 
 @media (max-width: 640px) {
-  brand-panel__overlay,
+  .brand-panel__overlay,
   .brand-panel__content {
     border-radius: 22px;
   }
 
   .auth-card {
     border-radius: 28px;
+    padding: 24px;
   }
 
   .hero-copy h1 {
